@@ -1,4 +1,4 @@
-package ar.edu.unlam.marvelcharacters
+package com.example.marvelcharactermultiplatform.android
 
 import com.google.gson.annotations.SerializedName
 import retrofit2.http.GET

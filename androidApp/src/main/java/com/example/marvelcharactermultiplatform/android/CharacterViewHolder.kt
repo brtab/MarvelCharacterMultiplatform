@@ -1,7 +1,7 @@
-package ar.edu.unlam.marvelcharacters
+package com.example.marvelcharactermultiplatform.android
 
 import androidx.recyclerview.widget.RecyclerView
-import ar.edu.unlam.marvelcharacters.databinding.ListItemCharacterBinding
+import com.example.marvelcharactermultiplatform.android.databinding.ListItemCharacterBinding
 import com.squareup.picasso.Picasso
 
 class CharacterViewHolder(private val binding: ListItemCharacterBinding) : RecyclerView.ViewHolder(binding.root) {

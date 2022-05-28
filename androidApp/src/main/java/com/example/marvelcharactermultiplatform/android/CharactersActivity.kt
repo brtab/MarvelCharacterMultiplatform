@@ -1,4 +1,4 @@
-package ar.edu.unlam.marvelcharacters
+package com.example.marvelcharactermultiplatform.android
 
 import android.graphics.Rect
 import android.os.Bundle
@@ -11,7 +11,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
-import ar.edu.unlam.marvelcharacters.databinding.ActivityCharactersBinding
+import com.example.marvelcharactermultiplatform.android.databinding.ActivityCharactersBinding
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 

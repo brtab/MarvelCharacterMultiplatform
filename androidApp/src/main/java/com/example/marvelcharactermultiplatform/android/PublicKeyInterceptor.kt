@@ -1,4 +1,4 @@
-package ar.edu.unlam.marvelcharacters
+package com.example.marvelcharactermultiplatform.android
 
 import okhttp3.Interceptor
 import okhttp3.Response

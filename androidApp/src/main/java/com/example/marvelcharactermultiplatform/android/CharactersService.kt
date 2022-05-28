@@ -1,4 +1,4 @@
-package ar.edu.unlam.marvelcharacters
+package com.example.marvelcharactermultiplatform.android
 
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException

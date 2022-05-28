@@ -1,4 +1,4 @@
-package ar.edu.unlam.marvelcharacters
+package com.example.marvelcharactermultiplatform.android
 
 class Character(
     val id: Long,
