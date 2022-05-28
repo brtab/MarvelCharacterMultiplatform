@@ -9,3 +9,4 @@
 .externalNativeBuild
 .cxx
 local.properties
+androidApp/src/main/java/com/example/marvelcharactermultiplatform/android/Constants.kt
