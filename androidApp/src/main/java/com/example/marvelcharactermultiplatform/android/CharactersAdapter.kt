@@ -3,6 +3,7 @@ package com.example.marvelcharactermultiplatform.android
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.marvelcharactermultiplatform.Character
 import com.example.marvelcharactermultiplatform.android.databinding.ListItemCharacterBinding
 
 class CharactersAdapter : RecyclerView.Adapter<CharacterViewHolder>() {

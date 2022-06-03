@@ -1,5 +1,7 @@
 package com.example.marvelcharactermultiplatform.android
 
+import com.example.marvelcharactermultiplatform.Character
+import com.example.marvelcharactermultiplatform.CharactersRepository
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 

@@ -1,4 +1,6 @@
-package com.example.marvelcharactermultiplatform.android
+package com.example.marvelcharactermultiplatform
+
+import com.example.marvelcharactermultiplatform.Character
 
 interface CharactersRepository {
 

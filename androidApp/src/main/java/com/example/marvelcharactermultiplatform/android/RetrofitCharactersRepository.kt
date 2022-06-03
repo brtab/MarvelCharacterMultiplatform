@@ -1,5 +1,8 @@
 package com.example.marvelcharactermultiplatform.android
 
+import com.example.marvelcharactermultiplatform.Character
+import com.example.marvelcharactermultiplatform.CharactersRepository
+
 class RetrofitCharactersRepository(private val apiClient: MarvelCharactersClient) :
     CharactersRepository {
 

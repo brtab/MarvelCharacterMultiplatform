@@ -11,6 +11,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
+import com.example.marvelcharactermultiplatform.Character
 import com.example.marvelcharactermultiplatform.android.databinding.ActivityCharactersBinding
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch

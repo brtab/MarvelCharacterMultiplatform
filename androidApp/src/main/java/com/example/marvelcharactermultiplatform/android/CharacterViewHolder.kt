@@ -1,6 +1,7 @@
 package com.example.marvelcharactermultiplatform.android
 
 import androidx.recyclerview.widget.RecyclerView
+import com.example.marvelcharactermultiplatform.Character
 import com.example.marvelcharactermultiplatform.android.databinding.ListItemCharacterBinding
 import com.squareup.picasso.Picasso
 
