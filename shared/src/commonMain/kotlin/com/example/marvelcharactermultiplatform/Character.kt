@@ -1,5 +1,8 @@
 package com.example.marvelcharactermultiplatform
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 class Character(
     val id: Long,
     val name: String,
