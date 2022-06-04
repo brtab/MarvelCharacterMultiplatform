@@ -30,7 +30,7 @@ kotlin {
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
                 implementation("com.appmattus.crypto:cryptohash:0.10.0")
                 implementation("de.peilicke.sascha:kex:1.0.6")
-                implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
+                implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
                 implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
             }
         }
