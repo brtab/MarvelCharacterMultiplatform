@@ -2,6 +2,8 @@ package com.example.marvelcharactermultiplatform.android
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.marvelcharactermultiplatform.CharacterClient
+import com.example.marvelcharactermultiplatform.KtorCharacterRepository
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -20,8 +22,11 @@ class CharactersViewModelFactory : ViewModelProvider.Factory {
 
         val apiClient = retrofit.create(MarvelCharactersClient::class.java)
 
+        val charactersApiKtor = KtorCharacterRepository()
+        val characterClient = CharacterClient(charactersApiKtor)
+
         val charactersApi = RetrofitCharactersRepository(apiClient)
         val charactersService = CharactersService(charactersApi)
-        return CharactersViewModel(charactersService) as T
+        return CharactersViewModel(characterClient) as T
     }
 }

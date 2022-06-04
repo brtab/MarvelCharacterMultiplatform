@@ -32,6 +32,8 @@ kotlin {
                 implementation("de.peilicke.sascha:kex:1.0.6")
                 implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
                 implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+                implementation("io.ktor:ktor-client-logging:$ktorVersion")
+                implementation("io.github.aakira:napier:2.6.1")
             }
         }
         val commonTest by getting {

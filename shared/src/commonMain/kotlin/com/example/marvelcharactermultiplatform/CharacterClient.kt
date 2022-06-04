@@ -9,7 +9,7 @@ class CharacterClient(
     private val repository: CharactersRepository
 ) {
 
-    suspend fun getAllCharacters(): List<Character> {
+    suspend fun getCharacters(): List<Character> {
         val timestamp = getTimeMillis()
         val characters = repository.getCharacters(
             timestamp,
@@ -19,7 +19,6 @@ class CharacterClient(
     }
 
     private fun md5(string: String): String {
-        val MD5 = "MD5"
         try {
             // Create MD5 Hash
             val digest = Algorithm.MD5.createDigest()

@@ -4,13 +4,14 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.marvelcharactermultiplatform.Character
+import com.example.marvelcharactermultiplatform.CharacterClient
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
 class CharactersViewModel(
-    private val charactersService: CharactersService
+    private val charactersService: CharacterClient
 ) : ViewModel() {
 
     private val _screenState: MutableStateFlow<ScreenState> = MutableStateFlow(ScreenState.Loading)
