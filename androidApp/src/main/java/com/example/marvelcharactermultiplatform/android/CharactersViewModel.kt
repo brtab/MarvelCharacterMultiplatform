@@ -3,7 +3,7 @@ package com.example.marvelcharactermultiplatform.android
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.marvelcharactermultiplatform.Character
+import com.example.marvelcharactermultiplatform.CharacterResult
 import com.example.marvelcharactermultiplatform.CharacterClient
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.Flow
@@ -34,5 +34,5 @@ sealed class ScreenState {
 
     object Loading : ScreenState()
 
-    class ShowCharacters(val list: List<Character>) : ScreenState()
+    class ShowCharacters(val list: List<CharacterResult>) : ScreenState()
 }

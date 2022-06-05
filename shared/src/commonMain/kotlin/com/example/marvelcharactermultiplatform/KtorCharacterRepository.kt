@@ -11,13 +11,13 @@ import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.json.Json
 
-class KtorCharacterRepository: CharactersRepository {
+class KtorCharacterRepository : CharactersRepository {
     private val baseUrl = "https://gateway.marvel.com/"
     private lateinit var client: HttpClient
-    override suspend fun getCharacters(timestamp: Long, md5: String): List<Character> {
+    override suspend fun getCharacters(timestamp: Long, md5: String): List<CharacterResult> {
         client = HttpClient {
             install(ContentNegotiation) {
-                json (
+                json(
                     Json {
                         ignoreUnknownKeys = true
                     })
@@ -35,12 +35,16 @@ class KtorCharacterRepository: CharactersRepository {
         val response = client.get(baseUrl) {
             url {
                 appendPathSegments("v1/public/characters")
+                headers.append("Accept", "application/json")
                 parameters.append("ts", timestamp.toString())
                 parameters.append("hash", md5)
                 parameters.append("apikey", PublicKey)
             }
         }
 
-        return response.body()
+        val data: CharactersResponse = response.body()
+        Napier.v(data.data.results[0].name)
+
+        return data.data.results
     }
 }

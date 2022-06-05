@@ -9,7 +9,7 @@ class CharacterClient(
     private val repository: CharactersRepository
 ) {
 
-    suspend fun getCharacters(): List<Character> {
+    suspend fun getCharacters(): List<CharacterResult> {
         val timestamp = getTimeMillis()
         val characters = repository.getCharacters(
             timestamp,
@@ -34,12 +34,12 @@ class CharacterClient(
         return ""
     }
 
-    private fun sort(characters: List<Character>): List<Character> {
+    private fun sort(characters: List<CharacterResult>): List<CharacterResult> {
         return characters.sortedWith(CharacterComparator())
     }
 
-    private class CharacterComparator : Comparator<Character> {
-        override fun compare(c1: Character, c2: Character): Int {
+    private class CharacterComparator : Comparator<CharacterResult> {
+        override fun compare(c1: CharacterResult, c2: CharacterResult): Int {
             if (c1.description.isEmpty() && c2.description.isEmpty()) {
                 return c2.id.compareTo(c1.id)
             }
