@@ -10,3 +10,4 @@
 .cxx
 local.properties
 androidApp/src/main/java/com/example/marvelcharactermultiplatform/android/Constants.kt
+shared/src/commonMain/kotlin/com/example/marvelcharactermultiplatform/Constants.kt

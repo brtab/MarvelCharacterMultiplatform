@@ -11,9 +11,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
-import com.example.marvelcharactermultiplatform.Character
+import com.example.marvelcharactermultiplatform.CharacterResult
 import com.example.marvelcharactermultiplatform.android.databinding.ActivityCharactersBinding
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class CharactersActivity : AppCompatActivity() {
@@ -52,7 +51,7 @@ class CharactersActivity : AppCompatActivity() {
 
     }
 
-    private fun showCharacters(list: List<Character>) {
+    private fun showCharacters(list: List<CharacterResult>) {
         charactersAdapter.submitList(list)
     }
 
