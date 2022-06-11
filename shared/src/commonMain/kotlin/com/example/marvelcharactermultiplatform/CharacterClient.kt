@@ -34,7 +34,7 @@ class CharacterClient(
         return ""
     }
 
-    private fun sort(characters: List<CharacterResult>): List<CharacterResult> {
+    internal fun sort(characters: List<CharacterResult>): List<CharacterResult> {
         return characters.sortedWith(CharacterComparator())
     }
 
