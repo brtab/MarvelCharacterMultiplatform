@@ -19,6 +19,7 @@ class CharactersActivity : AppCompatActivity() {
     private lateinit var charactersAdapter: CharactersAdapter
     lateinit var charactersApiKtor: KtorCharacterRepository
     lateinit var characterClient: CharacterClient
+    lateinit var viewModel: CharactersViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,12 +35,10 @@ class CharactersActivity : AppCompatActivity() {
             this.addItemDecoration(VerticalSpaceItemDecoration(16))
         }
 
-        // Listen to Retrofit response
-        //val viewModel = ViewModelProvider(this, CharactersViewModelFactory())[CharactersViewModel::class.java]
         charactersApiKtor = KtorCharacterRepository()
         characterClient = CharacterClient(charactersApiKtor)
 
-        val viewModel = CharactersViewModel(characterClient)
+        viewModel = CharactersViewModel(characterClient)
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.screenState.collect {
@@ -50,6 +49,11 @@ class CharactersActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.clear()
     }
 
     private fun showLoading() {
