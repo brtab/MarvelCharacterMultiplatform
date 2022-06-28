@@ -11,10 +11,16 @@ class CharacterClient(
 
     suspend fun getCharacters(): List<CharacterResult> {
         val timestamp = getTimeMillis()
-        val characters = repository.getCharacters(
-            timestamp,
-            md5(timestamp.toString() + PrivateKey + PublicKey)
-        )
+        var characters: List<CharacterResult>
+        try {
+            characters = repository.getCharacters(
+                timestamp,
+                md5(timestamp.toString() + PrivateKey + PublicKey)
+            )
+        } catch(e: Exception) {
+            //buscar desde almacenamiento del equipo
+            characters = emptyList()
+        }
         return sort(characters)
     }
 

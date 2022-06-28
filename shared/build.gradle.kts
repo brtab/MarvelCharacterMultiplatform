@@ -3,6 +3,13 @@ plugins {
     kotlin("native.cocoapods")
     id("com.android.library")
     kotlin("plugin.serialization") version "1.6.10"
+    id("com.squareup.sqldelight")
+}
+
+sqldelight {
+    database("AppDatabase") {
+        packageName = "com.example.db"
+    }
 }
 
 version = "1.0"
@@ -33,9 +40,7 @@ kotlin {
                 implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
                 implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2")
-                implementation("dev.icerock.moko:mvvm-core:0.13.0")
-                implementation("dev.icerock.moko:mvvm-livedata:0.13.0")
-                implementation("dev.icerock.moko:mvvm-livedata-resources:0.13.0")
+                implementation("com.squareup.sqldelight:gradle-plugin:1.5.3")
             }
         }
 
@@ -48,6 +53,7 @@ kotlin {
             dependencies {
                 implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2")
+                implementation("com.squareup.sqldelight:android-driver:1.5.3")
             }
         }
         val androidTest by getting
@@ -61,6 +67,7 @@ kotlin {
             iosSimulatorArm64Main.dependsOn(this)
             dependencies {
                 implementation("io.ktor:ktor-client-ios:$ktorVersion")
+                implementation("com.squareup.sqldelight:native-driver:1.5.3")
             }
         }
         val iosX64Test by getting
