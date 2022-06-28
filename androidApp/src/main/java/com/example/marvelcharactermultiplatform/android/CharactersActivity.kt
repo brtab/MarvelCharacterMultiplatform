@@ -5,19 +5,21 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
-import com.example.marvelcharactermultiplatform.CharacterResult
+import com.example.marvelcharactermultiplatform.*
 import com.example.marvelcharactermultiplatform.android.databinding.ActivityCharactersBinding
 import kotlinx.coroutines.launch
 
 class CharactersActivity : AppCompatActivity() {
 
     private lateinit var charactersAdapter: CharactersAdapter
+    lateinit var charactersApiKtor: KtorCharacterRepository
+    lateinit var characterClient: CharacterClient
+    lateinit var viewModel: CharactersViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +35,10 @@ class CharactersActivity : AppCompatActivity() {
             this.addItemDecoration(VerticalSpaceItemDecoration(16))
         }
 
-        // Listen to Retrofit response
-        val viewModel = ViewModelProvider(this, CharactersViewModelFactory())[CharactersViewModel::class.java]
+        charactersApiKtor = KtorCharacterRepository()
+        characterClient = CharacterClient(charactersApiKtor)
+
+        viewModel = CharactersViewModel(characterClient)
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.screenState.collect {
@@ -45,6 +49,11 @@ class CharactersActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.clear()
     }
 
     private fun showLoading() {

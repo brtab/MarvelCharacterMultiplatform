@@ -22,7 +22,7 @@ kotlin {
             baseName = "shared"
         }
     }
-    
+
     sourceSets {
         val ktorVersion = "2.0.2"
         val commonMain by getting {
@@ -32,10 +32,13 @@ kotlin {
                 implementation("de.peilicke.sascha:kex:1.0.6")
                 implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
                 implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
-                implementation("io.ktor:ktor-client-logging:$ktorVersion")
-                implementation("io.github.aakira:napier:2.6.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2")
+                implementation("dev.icerock.moko:mvvm-core:0.13.0")
+                implementation("dev.icerock.moko:mvvm-livedata:0.13.0")
+                implementation("dev.icerock.moko:mvvm-livedata-resources:0.13.0")
             }
         }
+
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
@@ -44,6 +47,7 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2")
             }
         }
         val androidTest by getting
