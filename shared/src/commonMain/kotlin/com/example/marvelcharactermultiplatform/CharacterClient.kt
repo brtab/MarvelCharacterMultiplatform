@@ -9,29 +9,31 @@ class CharacterClient(
     private val repository: CharactersRepository
 ) {
 
+    companion object MD5 {
+        fun getMd5(string: String): String {
+            try {
+                // Create MD5 Hash
+                val digest = Algorithm.MD5.createDigest()
+                digest.update(string.toByteArray())
+                val messageDigest = digest.digest()
+
+                // Create Hex String
+                val hexString = Hex.toHexString(messageDigest)
+                return hexString
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+            return ""
+        }
+    }
+
     suspend fun getCharacters(): List<CharacterResult> {
         val timestamp = getTimeMillis()
         val characters = repository.getCharacters(
             timestamp,
-            md5(timestamp.toString() + PrivateKey + PublicKey)
+            getMd5(timestamp.toString() + PrivateKey + PublicKey)
         )
         return sort(characters)
-    }
-
-    private fun md5(string: String): String {
-        try {
-            // Create MD5 Hash
-            val digest = Algorithm.MD5.createDigest()
-            digest.update(string.toByteArray())
-            val messageDigest = digest.digest()
-
-            // Create Hex String
-            val hexString = Hex.toHexString(messageDigest)
-            return hexString
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return ""
     }
 
     internal fun sort(characters: List<CharacterResult>): List<CharacterResult> {
