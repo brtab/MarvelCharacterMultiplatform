@@ -40,7 +40,7 @@ kotlin {
                 implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
                 implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2")
-                implementation("com.squareup.sqldelight:gradle-plugin:1.5.3")
+                implementation("com.squareup.sqldelight:runtime:1.5.3")
             }
         }
 
